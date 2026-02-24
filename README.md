@@ -1,71 +1,60 @@
-# 🚀 Smart Service Request Portal
-
-![Java](https://img.shields.io/badge/Java-17-orange) 
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-green) 
-![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+# 🎫 Ticket Management System 
 
 ---
-
+![Java](https://img.shields.io/badge/Java-17-orange) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green) ![MySQL](https://img.shields.io/badge/MySQL-DB-blue)
 ## 1️⃣ Introduction
 
-The **Smart Service Request Portal** is a secure backend application built using **Spring Boot**.
+This project is a **Ticket Management System backend** built using **Spring Boot**.  
+It implements **JWT-based authentication**, **role-based authorization**, and **ticket lifecycle management** using **MySQL**.
 
-It implements:
-
-- JWT-based authentication  
-- Role-based authorization  
-- Service request lifecycle management  
-- Comment system  
-- Audit logging  
-
-The system follows a clean layered architecture and demonstrates real-world backend development practices.
+The system is designed with **clean architecture** and follows industry best practices.
 
 ---
 
 ## 2️⃣ Tech Stack
 
-- Java 17  
-- Spring Boot 3.x  
-- Spring Security  
-- JWT (JSON Web Token)  
-- Spring Data JPA (Hibernate)  
-- MySQL  
-- Maven  
-- Postman (API Testing)
+- Java 17
+- Spring Boot
+- Spring Security
+- JWT (JSON Web Token)
+- Spring Data JPA (Hibernate)
+- MySQL
+- Maven
+- Postman (API testing)
 
 ---
 
 ## 3️⃣ Roles in the System
 
 ### 👤 USER
-- Register & login  
-- Create service requests  
-- View own requests  
-- View comments  
+- Register & login
+- Create tickets
+- View own tickets
+- View comments
 
 ### 🧑‍💼 AGENT
-- Login using JWT  
-- View assigned requests  
-- Update request status  
-- Add comments  
+- Login using JWT
+- View assigned tickets
+- Update ticket status
+- Add comments
 
 ### 👑 ADMIN
-- View all requests  
-- Assign requests to agents  
-- View audit logs  
-- Add comments  
+- View all tickets
+- Assign tickets to agents
+- View audit logs
+- Add comments
 
 ---
 
-## 4️⃣ Service Request Lifecycle
+## 4️⃣ Ticket Lifecycle
 
-Requests move through the following stages:
+Tickets move through the following stages:
 
-- OPEN  
-- IN_PROGRESS  
-- ON_HOLD  
-- RESOLVED  
-- CLOSED  
+- OPEN
+- IN_PROGRESS
+- ON_HOLD
+- RESOLVED
+- CLOSED
 
 ---
 
@@ -88,57 +77,36 @@ src/main/java/com/example/ticketing
 ```
 ---
 
-
-### Flow
-
-Client  
-⬇  
-Controller  
-⬇  
-Service  
-⬇  
-Repository  
-⬇  
-MySQL Database  
-
-Security Layer:
-- JWT Authentication Filter  
-- Role-Based Access Control  
-- Stateless Authentication  
-
----
-
 ## 📡 API Endpoints
 
 ### 🔑 Authentication
-- `POST /auth/register` – Register new user  
-- `POST /auth/login` – Login and receive JWT  
+- POST `/auth/register` – Register new user
+- POST `/auth/login` – Login and receive JWT
 
-### 📌 Service Requests
-- `POST /api/requests` – Create request (USER)  
-- `PUT /api/requests/{id}/status` – Update status (AGENT)  
-- `PUT /api/requests/{id}/assign/{agentId}` – Assign request (ADMIN)  
+### 🎫 Tickets
+- POST `/api/tickets` – Create ticket (USER)
+- PUT `/api/tickets/{id}/status` – Update status (AGENT)
+- PUT `/api/tickets/{id}/assign/{agentId}` – Assign ticket (ADMIN)
 
 ### 💬 Comments
-- `POST /api/requests/{requestId}/comments` – Add comment (AGENT, ADMIN)  
+- POST `/api/tickets/{ticketId}/comments` – Add comment (AGENT, ADMIN)
 
 ### 🧾 Audit
-- `GET /api/audit/requests/{requestId}` – View audit logs (ADMIN)  
+- GET `/api/audit/tickets/{ticketId}` – View audit logs (ADMIN)
 
 ---
 
 ## ⚙️ Database Configuration
-
 Configure MySQL in `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/portal_db
+spring.datasource.url=jdbc:mysql://localhost:3306/ticket_db
 spring.datasource.username=root
 spring.datasource.password=****
 spring.jpa.hibernate.ddl-auto=update
-spring. jpa.show-sql=true
+spring.jpa.show-sql=true
 
-
+```
 ## ▶️ How to Run the Project
 
 - Clone or download the project
@@ -169,4 +137,3 @@ spring. jpa.show-sql=true
 
 - [LinkedIn Profile](https://www.linkedin.com/in/aditya-mishra-x)
 - [GitHub Profile](https://github.com/aditya05200)
-
